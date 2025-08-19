@@ -15,6 +15,7 @@ wheels/
 
 *.yaml
 !.github/**
+!example/**
 *.json
 *.csv
 

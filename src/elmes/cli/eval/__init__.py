@@ -26,7 +26,6 @@ def eval(config: Path, debug: bool, avg: bool):
 
 def eval_logic(avg: bool):
     from elmes.config import CONFIG
-
     input_dir = CONFIG.globals.memory.path
     import asyncio
     from elmes.evaluation import evaluate
@@ -47,6 +46,7 @@ def eval_logic(avg: bool):
         async with sem:
             ef = ExportFormat.from_json_file(file)
             try:
+
                 eval = await evaluate(model, ef)
                 with open(eval_path / file.name, "w", encoding="utf8") as f:
                     json.dump(eval, f, ensure_ascii=False, indent=4)
@@ -59,7 +59,10 @@ def eval_logic(avg: bool):
         assert CONFIG.evaluation
         model = init_chat_model_from_dict(CONFIG.models[CONFIG.evaluation.model])
 
-        to_eval_files = list(input_dir.glob("*.json"))
+        # Only evaluate the 3 most recently modified input files.
+        to_eval_files = sorted(
+            input_dir.glob("*.json"), key=lambda file: file.stat().st_mtime, reverse=True
+        )[:1]
         task_ids = [file.stem for file in to_eval_files]
         eval_tasks = []
         for file in to_eval_files:

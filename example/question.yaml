@@ -21,17 +21,17 @@ globals:
 models:
   test_model:
     type: openai
-    api_key: <YOUR API KEY>
-    api_base: <YOUR API BASE>
-    model: Qwen2.5-72B-Instruct
+    api_key: 2uuD5+89UvtRc4nCn5ZMjQyArLh37ndg3Q5fMeZl7p0=
+    api_base: https://eeb5kcocc9o8cjojkphogjmhebqhqpmg.openapi-qb-ai.sii.edu.cn/v1/
+    model: qwen3.5-35b
     # 如果需要指定特殊参数
     #kargs:
     # temperature: 0.5
   judge_model:
     type: openai
-    api_key: <YOUR API KEY>
-    api_base: <YOUR API BASE>
-    model: Qwen2.5-72B-Instruct
+    api_key: sk-jnCs2n2jW28lCAduYze4DdcOAch0V82MghHbZMDZY8elvr26
+    api_base: https://api.innospark.cn/v1/
+    model: gemini-3-pro-preview
     # 如果需要指定特殊参数
     kargs:
       temperature: 0
@@ -72,15 +72,6 @@ tasks:
   content:
     # content中的字段将被用于动态生成agents中的prompt，例如image将替换提示词中所有{image}
     - question: 我需要一道关于三角形周长的基础题，考察学生对等边三角形特性的理解。题目要适合四年级下学期的学生课堂练习。
-    - question: 我正在教授四年级学生大数的比较，希望能找一道结合生活实际的应用题来检测他们的掌握情况。难度中等即可。
-    - question: 我正在寻找一道适合五年级学生的单位换算的题目，希望能整合时间和面积两个知识点的练习。题目最好是和生活实际相关的，难度可以稍高一点，因为我想考查学生对不同单位换算的综合掌握能力。
-    - question: 我正给五年级学生讲解体积的概念，需要一道能够明确区分表面积、体积和容积概念的题目。希望题目能结合实际生活情境，帮助学生建立空间观念。
-    - question: 我想为五年级学生设计一道结合生活实际的比例计算题，需要同时考察分数运算和小数应用题。题目最好能同时包含简单的比例关系和分数运算两个知识点，让学生学会在实际中进行数学换算。
-    - question: 我正在给七年级学生讲解角度的基本概念和比较，需要一道生活化的几何题来帮助学生理解\"角的和差关系\"。希望题目能结合具体情境，通过披萨分切的例子来说明问题，难度中等。
-    - question: 我需要一道八年级统计与概率单元的练习题，要考察学生对平均数概念的理解和应用。题目最好有实际生活背景，难度控制在容易到中等之间。
-    - question: 我正在教授七年级学生平面直角坐标系的知识，想找一道有趣的坐标平移练习题。希望题目能融入生活情境，难度中等，既考察学生对坐标移动的理解，又能锻炼他们的计算能力。
-    - question: 我正在教授七年级上学期\"正数与负数\"的概念，需要一道能够生动体现正负数实际应用的题目。希望题目能结合生活场景，考察学生对正负数表示相反意义的理解，同时锻炼他们的运算能力 。
-    - question: 同学们最近在学习平行线的判定，我想要一道七年级的选择题来检测他们对平行线概念的理解。题目需要结合生活情境，最好能涉及平行线的传递性和空间概念，难度适中
 
 # 设定用于评估的模型和提示词，以及输出的格式
 evaluation:

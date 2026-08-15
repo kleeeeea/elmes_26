@@ -15,29 +15,28 @@ globals:
 
 # 定义任务中需要用到的模型
 models:
-  # 字段名可以自定义
-  teacher:
-    type: openai
-    api_key: <YOUR API KEY>
-    api_base: <YOUR API BASE>
-    model: Qwen2.5-72B-Instruct
-    #kargs:
-    #  max_tokens: 512
-    # temperature: 0.8
-    # # 如果需要指定特殊参数
-    # kargs:
-    #   temperature: 0.7
   stu:
     type: openai
-    api_key: <YOUR API KEY>
-    api_base: <YOUR API BASE>
-    model: Qwen2.5-72B-Instruct
+    api_key: 2uuD5+89UvtRc4nCn5ZMjQyArLh37ndg3Q5fMeZl7p0=
+    api_base: https://eeb5kcocc9o8cjojkphogjmhebqhqpmg.openapi-qb-ai.sii.edu.cn/v1/
+    model: qwen3.5-35b
 
+  teacher:
+    type: openai
+    api_key: 2uuD5+89UvtRc4nCn5ZMjQyArLh37ndg3Q5fMeZl7p0=
+    api_base: https://eeb5kcocc9o8cjojkphogjmhebqhqpmg.openapi-qb-ai.sii.edu.cn/v1/
+    model: qwen3.5-35b
+    # 如果需要指定特殊参数
+    #kargs:
+    # temperature: 0.5
   eval:
     type: openai
-    api_key: <YOUR API KEY>
-    api_base: <YOUR API BASE>
-    model: Qwen2.5-72B-Instruct
+    api_key: sk-jnCs2n2jW28lCAduYze4DdcOAch0V82MghHbZMDZY8elvr26
+    api_base: https://api.innospark.cn/v1/
+    model: gemini-2.0-flash
+    # 如果需要指定特殊参数
+    kargs:
+      temperature: 0
 
 # 定义任务中需要使用的agent
 agents:
@@ -135,14 +134,8 @@ tasks:
     # content中的字段将被用于动态生成agents中的prompt，例如image将替换提示词中所有{image}
     image:
       - 认知能力强，逻辑思维突出，知识掌握全面且能灵活应用。性格开朗自信，班级小领袖，与师生关系融洽，对科学实验有浓厚兴趣。
-      - 基础知识较扎实但应用能力需提升，在数学方面有一定困难。性格内向，在熟悉环境中友好交流，有少数亲密朋友，对绘画和手工制作感兴趣。
-      - 最基本的加减法都搞不清楚，认字量极少，上课完全听不懂。注意力无法集中，经常打断老师课堂，作业要么不交要么全错，在学校只对打闹感兴趣。
     question:
       - 一个三位数，个位和百位数字交换后还是一个三位数，它与原三位数的差的个位数字是7，试求它们的差．
-      - 师徒两人装配自行车，师傅每天装配32辆，徒弟每天比师傅少装配8辆．经过多少天师傅比徒弟多装配56辆？
-      - 果园里有桃树24棵，梨树的棵数是桃树的3倍，苹果树的棵数是梨树的4倍。苹果树有多少棵？
-      - 两位数乘三位数，积是( )A、三位数 B、四位数、C、四位数或五位数
-      - 一学生用计算器算题，结果计算器的“4”键恰好坏了，要算出144×54，按键顺序为(    )才能算出结果。
 
   # iter代表遍历content中所有task，比较适合多个字段不能/不需要排列组合的情况
   # model: iter
